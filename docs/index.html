@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TERA MOBILE SCALP – Bot de scalping pour Android</title>
+<meta name="description" content="TERA MOBILE SCALP : bot de scalping suiveur de tendance pour Android. Simulation, démo, backtest, alertes Telegram. 45 jours d'essai gratuit.">
+<meta property="og:title" content="TERA MOBILE SCALP">
+<meta property="og:description" content="Bot de scalping suiveur de tendance pour Android. 45 jours d'essai gratuit.">
+<style>
+  :root{
+    --bg:#0B1220; --card:#111B2E; --line:#22304A; --text:#E8EEF9; --muted:#9AA9C4;
+    --accent:#2DD4BF; --accent2:#6366F1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:800;letter-spacing:1px}
+  nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-size:14px}
+  nav a:hover{color:var(--text)}
+  .btn{display:inline-block;padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;
+       background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101c}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .hero{padding:80px 0 60px;text-align:center}
+  .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin-bottom:18px}
+  .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);max-width:640px;margin:0 auto 30px;font-size:18px}
+  .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .meta{margin-top:14px;font-size:13px;color:var(--muted)}
+  section{padding:56px 0}
+  h2{font-size:28px;margin-bottom:8px}
+  .sub{color:var(--muted);margin-bottom:28px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .card h3{font-size:17px;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:15px}
+  .shots{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px}
+  .shots img{height:420px;border-radius:18px;border:1px solid var(--line);flex:0 0 auto}
+  .price{max-width:420px;margin:0 auto;text-align:center}
+  .price .big{font-size:48px;font-weight:800}
+  .price ul{list-style:none;margin:18px 0 24px;text-align:left}
+  .price li{padding:6px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+  .price li::before{content:"✓ ";color:var(--accent)}
+  ol.steps{counter-reset:s;list-style:none;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 22px 70px;position:relative}
+  ol.steps li::before{content:counter(s);position:absolute;left:20px;top:20px;width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101c;font-weight:800;display:grid;place-items:center}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600}
+  details p{color:var(--muted);margin-top:8px}
+  .warn{background:#2a1a12;border:1px solid #5a3a22;border-radius:12px;padding:16px 18px;color:#f3c9a8;font-size:14px}
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">TERA MOBILE SCALP</div>
+    <nav>
+      <a href="#fonctions">Fonctions</a>
+      <a href="#tarif">Tarif</a>
+      <a href="#installer">Installer</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <h1>Le bot de scalping <span>suiveur de tendance</span> dans votre poche</h1>
+    <p>Bybit, Binance Futures et Kraken Futures (bêta). Testez en simulation, passez en démo, puis en réel quand vous êtes prêt.</p>
+    <div class="cta">
+      <a class="btn" id="dl" href="https://github.com/nirinadim-ctrl/tera-mobile-scalp/releases/latest/download/TERA-MOBILE-SCALP.apk">Télécharger l'application (APK)</a>
+      <a class="btn ghost" href="#installer">Comment installer ?</a>
+    </div>
+    <div class="meta">Android uniquement · <span id="ver">dernière version</span> · 45 jours d'essai gratuit</div>
+  </div>
+
+  <section id="fonctions">
+    <div class="wrap">
+      <h2>Ce que fait l'application</h2>
+      <p class="sub">Un moteur de trading pensé pour le téléphone, qui continue de tourner en arrière-plan.</p>
+      <div class="grid">
+        <div class="card"><h3>3 modes</h3><p>Simulation, Démo et Réel : validez votre réglage sans risque avant d'engager du capital.</p></div>
+        <div class="card"><h3>Backtest intégré</h3><p>Rejouez la stratégie sur l'historique pour juger ses résultats avant de lancer le bot.</p></div>
+        <div class="card"><h3>Risque avancé</h3><p>Paramétrez la taille de position et les protections pour garder le contrôle de vos pertes.</p></div>
+        <div class="card"><h3>Alertes Telegram</h3><p>Soyez prévenu des trades et du résumé quotidien, même téléphone verrouillé.</p></div>
+        <div class="card"><h3>Tableau de bord</h3><p>Une interface personnalisable pour suivre vos positions et vos performances d'un coup d'œil.</p></div>
+        <div class="card"><h3>Persistant</h3><p>Le bot reste actif en arrière-plan grâce à un service de premier plan et des notifications.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="captures">
+    <div class="wrap">
+      <h2>Captures d'écran</h2>
+      <p class="sub">Aperçu de l'interface.</p>
+      <div class="shots" id="shots"></div>
+    </div>
+  </section>
+
+  <section id="tarif">
+    <div class="wrap">
+      <h2 style="text-align:center">Tarif simple</h2>
+      <p class="sub" style="text-align:center">Essayez d'abord, payez seulement si l'outil vous convient.</p>
+      <div class="card price">
+        <div class="big">5 USDT<span style="font-size:18px;font-weight:500;color:var(--muted)"> / mois</span></div>
+        <ul>
+          <li>45 jours d'essai gratuit</li>
+          <li>Toutes les fonctions incluses</li>
+          <li>Paiement en USDT (réseau Polygon)</li>
+          <li>Mises à jour incluses</li>
+        </ul>
+        <a class="btn" href="#installer">Commencer l'essai</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="installer">
+    <div class="wrap">
+      <h2>Installer en 3 étapes</h2>
+      <p class="sub">L'application n'est pas sur le Play Store : Android demande une autorisation une seule fois.</p>
+      <ol class="steps">
+        <li><strong>Téléchargez l'APK</strong><br><span style="color:var(--muted)">Touchez le bouton « Télécharger l'application ». Si Chrome signale que le fichier peut être dangereux, choisissez « Télécharger quand même ».</span></li>
+        <li><strong>Autorisez l'installation</strong><br><span style="color:var(--muted)">Ouvrez le fichier. Android propose d'autoriser les « sources inconnues » pour Chrome : activez l'option puis revenez en arrière.</span></li>
+        <li><strong>Installez et créez votre compte</strong><br><span style="color:var(--muted)">Touchez « Installer », ouvrez l'application, créez votre compte : l'essai de 45 jours démarre.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <p class="sub"></p>
+      <details><summary>Est-ce que l'application se met à jour toute seule ?</summary>
+        <p>Elle vérifie au démarrage si une version plus récente existe et vous propose de la télécharger. L'installation se fait ensuite par-dessus l'ancienne version, sans rien perdre.</p></details>
+      <details><summary>Mes clés d'API sont-elles en sécurité ?</summary>
+        <p>Créez toujours des clés d'API sans droit de retrait, limitées au trading. Ne partagez jamais vos clés avec un tiers.</p></details>
+      <details><summary>Et sur iPhone ?</summary>
+        <p>Pour l'instant, seule la version Android est distribuée.</p></details>
+      <details><summary>Comment payer l'abonnement ?</summary>
+        <p>Depuis l'application, page « Abonnement » : envoi d'USDT sur le réseau Polygon puis validation du hash de transaction.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="warn"><strong>Avertissement sur les risques.</strong> Le trading, en particulier avec effet de levier, comporte un risque élevé de perte en capital. Aucun gain n'est garanti et les performances passées ne préjugent pas des performances futures. Testez toujours en simulation puis en démo avant le réel, et n'engagez que de l'argent que vous pouvez vous permettre de perdre.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© TERA MOBILE SCALP · Ce site ne fournit pas de conseil en investissement.</div>
+</footer>
+
+<script>
+  // Affiche la version publiée dans version.json
+  fetch('version.json').then(r => r.json()).then(j => {
+    if (j.version) document.getElementById('ver').textContent = 'version ' + j.version;
+    if (j.apk_url) document.getElementById('dl').href = j.apk_url;
+  }).catch(() => {});
+
+  // Captures : placez screens/1.png, 2.png, 3.png... a cote de cette page
+  (function () {
+    var box = document.getElementById('shots'), shown = 0, done = 0;
+    function finish() { if (++done === 6 && !shown) document.getElementById('captures').style.display = 'none'; }
+    for (var i = 1; i <= 6; i++) {
+      (function (n) {
+        var img = new Image();
+        img.alt = 'Capture ' + n;
+        img.onload = function () { box.appendChild(img); shown++; finish(); };
+        img.onerror = finish;
+        img.src = 'screens/' + n + '.png';
+      })(i);
+    }
+  })();
+</script>
+</body>
+</html>
