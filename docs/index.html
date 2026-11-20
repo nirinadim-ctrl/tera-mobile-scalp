@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TERA MOBILE SCALP – Bot de scalping Android | Télécharger l'APK</title>
-<meta name="description" content="TERA MOBILE SCALP : application Android de scalping suiveur de tendance. Bybit, Binance Futures, Kraken Futures, backtest, simulation, alertes Telegram. 45 jours d'essai gratuit.">
+<meta name="description" content="TERA MOBILE SCALP : application Android de scalping suiveur de tendance. Aucun droit de retrait, simulation gratuite, backtest, Bybit, Binance Futures, Kraken Futures. 45 jours d'essai gratuit.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0B1220">
 <link rel="canonical" href="https://nirinadim-ctrl.github.io/tera-mobile-scalp/">
@@ -29,161 +29,371 @@
 </script>
 <style>
   :root{
-    --bg:#0B1220; --card:#111B2E; --line:#22304A; --text:#E8EEF9; --muted:#9AA9C4;
-    --accent:#2DD4BF; --accent2:#6366F1;
+    --bg:#0B1220; --bg2:#0e1729; --card:#111B2E; --line:#22304A; --text:#E8EEF9; --muted:#9AA9C4;
+    --accent:#2DD4BF; --accent2:#6366F1; --gold:#F5C451;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:78px}
   a{color:inherit}
   .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .logo{font-weight:800;letter-spacing:1px}
+  .logo{font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+  .logo img{width:28px;height:28px;border-radius:7px}
   nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-size:14px}
   nav a:hover{color:var(--text)}
-  .btn{display:inline-block;padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;
-       background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101c}
-  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
-  .hero{padding:80px 0 60px;text-align:center}
-  .hero h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin-bottom:18px}
+  @media(max-width:720px){nav a:not(.keep){display:none}}
+  .btn{display:inline-block;padding:15px 28px;border-radius:12px;font-weight:700;text-decoration:none;
+       background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101c;box-shadow:0 8px 30px rgba(45,212,191,.25)}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none}
+  .btn.small{padding:10px 18px;font-size:14px}
+  .hero{padding:72px 0 44px;text-align:center}
+  .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--gold);margin-bottom:20px;background:rgba(245,196,81,.06)}
+  .hero h1{font-size:clamp(32px,6vw,58px);line-height:1.08;margin-bottom:18px}
   .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{color:var(--muted);max-width:640px;margin:0 auto 30px;font-size:18px}
-  .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .hero p.lead{color:var(--muted);max-width:660px;margin:0 auto 30px;font-size:18px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
   .meta{margin-top:14px;font-size:13px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;font-size:14px}
+  .chip b{color:var(--accent)}
   section{padding:56px 0}
-  h2{font-size:28px;margin-bottom:8px}
-  .sub{color:var(--muted);margin-bottom:28px}
-  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(24px,4vw,32px);margin-bottom:8px;line-height:1.2}
+  .sub{color:var(--muted);margin-bottom:28px;max-width:720px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
   .card h3{font-size:17px;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:15px}
+  .card p,.card li{color:var(--muted);font-size:15px}
+  .card .ico{font-size:26px;margin-bottom:8px}
+  .trust .card{border-color:#1d4a47}
   .shots{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px}
   .shots img{height:420px;border-radius:18px;border:1px solid var(--line);flex:0 0 auto}
-  .price{max-width:420px;margin:0 auto;text-align:center}
+  .price{max-width:440px;margin:0 auto;text-align:center;border-color:#2c5f5a}
   .price .big{font-size:48px;font-weight:800}
   .price ul{list-style:none;margin:18px 0 24px;text-align:left}
-  .price li{padding:6px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+  .price li{padding:7px 0;border-bottom:1px solid var(--line);color:var(--muted)}
   .price li::before{content:"✓ ";color:var(--accent)}
-  ol.steps{counter-reset:s;list-style:none;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  ol.steps{counter-reset:s;list-style:none;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
   ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 22px 70px;position:relative}
   ol.steps li::before{content:counter(s);position:absolute;left:20px;top:20px;width:36px;height:36px;border-radius:50%;
     background:linear-gradient(90deg,var(--accent),var(--accent2));color:#04101c;font-weight:800;display:grid;place-items:center}
+  ol.steps li span{color:var(--muted);font-size:15px}
   details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+  details[open]{border-color:#2c5f5a}
   summary{cursor:pointer;font-weight:600}
-  details p{color:var(--muted);margin-top:8px}
+  details .in{color:var(--muted);margin-top:10px;font-size:15px}
+  details .in p{margin-top:8px}
+  details .in ol,details .in ul{margin:8px 0 0 22px}
+  details .in li{margin:5px 0}
+  .tip{background:rgba(45,212,191,.07);border:1px solid #1d4a47;border-radius:10px;padding:10px 14px;margin-top:10px;color:#bfeee8}
   .warn{background:#2a1a12;border:1px solid #5a3a22;border-radius:12px;padding:16px 18px;color:#f3c9a8;font-size:14px}
-  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px;text-align:center}
+  .two{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+  .contact a.mail{color:var(--accent);font-weight:700;text-decoration:none;word-break:break-all}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+  footer .cols{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  footer h4{color:var(--text);font-size:14px;margin-bottom:6px}
+  footer a{color:var(--muted)}
+  footer .legal{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);text-align:center}
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(11,18,32,.96);border-top:1px solid var(--line);padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:center}
+  .sticky span{font-size:14px;color:var(--muted)}
+  @media(max-width:560px){.sticky span{display:none}.sticky .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <div class="logo">TERA MOBILE SCALP</div>
+    <div class="logo"><img src="favicon.png" alt="" width="28" height="28"> TERA MOBILE SCALP</div>
     <nav>
+      <a href="#confiance">Sécurité</a>
       <a href="#fonctions">Fonctions</a>
+      <a href="#guides">Guides</a>
       <a href="#tarif">Tarif</a>
-      <a href="#installer">Installer</a>
-      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a class="keep btn small" href="#telecharger" style="color:#04101c;margin-left:18px">Télécharger</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <div class="wrap hero">
-    <h1>Le bot de scalping <span>suiveur de tendance</span> dans votre poche</h1>
-    <p>Bybit, Binance Futures et Kraken Futures (bêta). Testez en simulation, passez en démo, puis en réel quand vous êtes prêt.</p>
+  <div class="wrap hero" id="telecharger">
+    <div class="badge">45 jours d'essai gratuit · Sans carte bancaire</div>
+    <h1>Votre bot de scalping, <span>sous votre contrôle</span>, dans votre poche</h1>
+    <p class="lead">Testez d'abord en simulation, validez en démo, puis passez en réel quand vous êtes prêt. Vos fonds restent sur votre exchange : l'application passe des ordres, jamais de retrait.</p>
     <div class="cta">
       <a class="btn" id="dl" href="https://github.com/nirinadim-ctrl/tera-mobile-scalp/releases/latest/download/TERA-MOBILE-SCALP.apk">Télécharger l'application (APK)</a>
-      <a class="btn ghost" href="#installer">Comment installer ?</a>
+      <a class="btn ghost" href="#guides">Voir les guides d'installation</a>
     </div>
-    <div class="meta">Android uniquement · <span id="ver">dernière version</span> · 45 jours d'essai gratuit</div>
+    <div class="meta">Android · <span id="ver">dernière version</span> · Installation en 2 minutes</div>
+    <div class="chips">
+      <div class="chip"><b>✓</b> Aucun droit de retrait</div>
+      <div class="chip"><b>✓</b> Clés API gardées sur votre téléphone</div>
+      <div class="chip"><b>✓</b> Arrêt du bot en un clic</div>
+      <div class="chip"><b>✓</b> Simulation gratuite sans risque</div>
+    </div>
   </div>
 
-  <section id="fonctions">
+  <section class="alt trust" id="confiance">
     <div class="wrap">
-      <h2>Ce que fait l'application</h2>
-      <p class="sub">Un moteur de trading pensé pour le téléphone, qui continue de tourner en arrière-plan.</p>
+      <h2>Votre argent, vos règles : pourquoi vous pouvez vous lancer sereinement</h2>
+      <p class="sub">Un bot de trading demande de la confiance. Voici, sans promesse de gain, exactement ce que l'application fait et ne fait pas.</p>
       <div class="grid">
-        <div class="card"><h3>3 modes</h3><p>Simulation, Démo et Réel : validez votre réglage sans risque avant d'engager du capital.</p></div>
-        <div class="card"><h3>Backtest intégré</h3><p>Rejouez la stratégie sur l'historique pour juger ses résultats avant de lancer le bot.</p></div>
-        <div class="card"><h3>Risque avancé</h3><p>Paramétrez la taille de position et les protections pour garder le contrôle de vos pertes.</p></div>
-        <div class="card"><h3>Alertes Telegram</h3><p>Soyez prévenu des trades et du résumé quotidien, même téléphone verrouillé.</p></div>
-        <div class="card"><h3>Tableau de bord</h3><p>Une interface personnalisable pour suivre vos positions et vos performances d'un coup d'œil.</p></div>
-        <div class="card"><h3>Persistant</h3><p>Le bot reste actif en arrière-plan grâce à un service de premier plan et des notifications.</p></div>
+        <div class="card"><div class="ico">🔒</div><h3>Jamais de retrait</h3><p>Vous créez une clé API limitée au trading, sans droit de retrait. Même si quelqu'un obtenait cette clé, il ne pourrait pas sortir vos fonds de l'exchange.</p></div>
+        <div class="card"><div class="ico">📱</div><h3>Vos clés restent chez vous</h3><p>Vos clés API sont enregistrées dans l'espace privé de l'application sur votre téléphone et envoyées uniquement à votre exchange pour passer vos ordres.</p></div>
+        <div class="card"><div class="ico">🧪</div><h3>Testez avant de risquer</h3><p>Simulation, Démo puis Réel : validez votre réglage avec de l'argent fictif avant d'engager le moindre capital.</p></div>
+        <div class="card"><div class="ico">🛑</div><h3>Vous gardez la main</h3><p>Démarrage et arrêt du bot en un clic, à tout moment. Vous fixez le risque, la taille des positions et les protections.</p></div>
+        <div class="card"><div class="ico">🔍</div><h3>Transparence totale</h3><p>Aucun gain promis, aucun faux témoignage, aucun chiffre inventé. Vous jugez par vous-même grâce au backtest et à la simulation.</p></div>
+        <div class="card"><div class="ico">🏦</div><h3>Vos fonds, sur votre exchange</h3><p>Votre argent reste sur Binance, Bybit ou Kraken, sous votre compte. Nous ne détenons jamais vos fonds.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="captures">
+  <section id="fonctions">
     <div class="wrap">
-      <h2>Captures d'écran</h2>
-      <p class="sub">Aperçu de l'interface.</p>
+      <h2>Tout ce qu'il faut pour scalper avec méthode</h2>
+      <p class="sub">Un moteur de trading pensé pour le téléphone, qui continue de tourner en arrière-plan.</p>
+      <div class="grid">
+        <div class="card"><div class="ico">⚡</div><h3>Stratégies intégrées</h3><p>Des stratégies de scalping suiveur de tendance prêtes à l'emploi : vous choisissez, vous réglez, vous lancez.</p></div>
+        <div class="card"><div class="ico">📈</div><h3>Graphiques en temps réel</h3><p>Suivez le marché et vos positions avec des graphiques interactifs et un tableau de bord personnalisable.</p></div>
+        <div class="card"><div class="ico">⏪</div><h3>Backtest intégré</h3><p>Rejouez la stratégie sur l'historique pour juger ses résultats avant de lancer le bot.</p></div>
+        <div class="card"><div class="ico">🔀</div><h3>3 modes de trading</h3><p>Simulation, Démo et Réel, avec un passage simple de l'un à l'autre.</p></div>
+        <div class="card"><div class="ico">🔗</div><h3>Binance · Bybit · Kraken</h3><p>Connexion par API à Bybit, Binance Futures et Kraken Futures (bêta).</p></div>
+        <div class="card"><div class="ico">🔔</div><h3>Alertes Telegram</h3><p>Soyez prévenu des trades et du résumé quotidien, même téléphone verrouillé.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="captures">
+    <div class="wrap">
+      <h2>Aperçu de l'application</h2>
+      <p class="sub">Une interface claire, pensée pour le pouce.</p>
       <div class="shots" id="shots"></div>
+    </div>
+  </section>
+
+  <section id="comment">
+    <div class="wrap">
+      <h2>Démarrer en 4 étapes</h2>
+      <p class="sub">De zéro à votre premier test en moins de dix minutes.</p>
+      <ol class="steps">
+        <li><strong>Installez</strong><br><span>Téléchargez l'APK et autorisez l'installation (guide détaillé plus bas).</span></li>
+        <li><strong>Créez votre compte</strong><br><span>Une adresse e-mail suffit : vos 45 jours d'essai démarrent.</span></li>
+        <li><strong>Testez en Simulation</strong><br><span>Aucun compte d'exchange nécessaire pour découvrir les réglages.</span></li>
+        <li><strong>Passez en Démo, puis en Réel</strong><br><span>Connectez votre exchange avec une clé sans droit de retrait quand vous êtes prêt.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt" id="guides">
+    <div class="wrap">
+      <h2>Guides pas à pas</h2>
+      <p class="sub">Touchez un guide pour le déplier. Tout est expliqué, même si vous débutez.</p>
+
+      <details open><summary>1. Installer l'application sur Android</summary>
+        <div class="in">
+          <ol>
+            <li>Sur votre téléphone, touchez le bouton <strong>Télécharger l'application (APK)</strong> de cette page.</li>
+            <li>Si Chrome affiche « Ce type de fichier peut être dangereux », touchez <strong>Télécharger quand même</strong>. C'est un avertissement automatique pour tout fichier APK hors Play Store.</li>
+            <li>Ouvrez le fichier téléchargé (notification, ou dossier « Téléchargements »).</li>
+            <li>Android demande d'autoriser l'installation depuis votre navigateur : touchez <strong>Paramètres</strong>, activez <strong>Autoriser depuis cette source</strong>, puis revenez en arrière.</li>
+            <li>Touchez <strong>Installer</strong>, puis <strong>Ouvrir</strong>.</li>
+          </ol>
+          <div class="tip">Si « Play Protect » affiche « Application inconnue » : touchez <strong>Plus de détails</strong>, puis <strong>Installer quand même</strong>. L'application n'est simplement pas distribuée via le Play Store.</div>
+          <p>Une fois l'installation terminée, vous pouvez retirer l'autorisation donnée au navigateur dans les paramètres Android.</p>
+        </div>
+      </details>
+
+      <details><summary>2. Créer votre compte et démarrer l'essai de 45 jours</summary>
+        <div class="in">
+          <ol>
+            <li>Ouvrez l'application et choisissez de créer un compte.</li>
+            <li>Saisissez votre adresse e-mail et un mot de passe.</li>
+            <li>Votre période d'essai gratuite de 45 jours démarre immédiatement, avec toutes les fonctions.</li>
+          </ol>
+          <p>Vous pouvez suivre le temps restant depuis l'onglet Compte. Vous êtes prévenu avant la fin de l'essai.</p>
+        </div>
+      </details>
+
+      <details><summary>3. Créer une clé API SANS droit de retrait (très important)</summary>
+        <div class="in">
+          <p>La clé API est ce qui permet à l'application de passer des ordres sur votre compte. Elle doit <strong>toujours</strong> être créée sans le droit de retrait.</p>
+          <p><strong>Bybit</strong></p>
+          <ol>
+            <li>Mode Démo : bybit.com, profil, « Demo Trading », puis API.</li>
+            <li>Mode Réel : profil, API, nouvelle clé.</li>
+            <li>Droits : <strong>Lecture-Écriture</strong>, limités aux <strong>contrats</strong>. Ne cochez <strong>jamais</strong> « Retrait ».</li>
+          </ol>
+          <p><strong>Binance Futures</strong></p>
+          <ol>
+            <li>Mode Démo : utilisez les clés de l'environnement de test Binance Futures (Demo Trading).</li>
+            <li>Mode Réel : Gestion API, créez une clé, activez <strong>Futures</strong>. Ne cochez <strong>jamais</strong> les retraits.</li>
+            <li>Mettez votre compte en mode <strong>One-way</strong> (position unique).</li>
+          </ol>
+          <p><strong>Kraken Futures (bêta)</strong></p>
+          <ol>
+            <li>Mode Démo : demo-futures.kraken.com, Paramètres, API.</li>
+            <li>Mode Réel : futures.kraken.com, Paramètres, Clés API, avec droits de trading uniquement, sans retrait.</li>
+          </ol>
+          <div class="tip">Conseil sécurité : si votre exchange le permet, limitez la clé à l'adresse IP de votre connexion et ne la partagez avec personne, pas même avec nous.</div>
+          <p>Ensuite, dans l'application : onglet Compte, choisissez l'exchange, collez la clé et le secret, puis lancez le test de connexion.</p>
+        </div>
+      </details>
+
+      <details><summary>4. Bien débuter : Simulation, Démo, puis Réel</summary>
+        <div class="in">
+          <ul>
+            <li><strong>Simulation</strong> : argent fictif, aucun compte d'exchange requis. Idéal pour comprendre les réglages et le tableau de bord.</li>
+            <li><strong>Démo</strong> : l'environnement de test de votre exchange. Les ordres sont réels sur un compte fictif, ce qui valide votre connexion API.</li>
+            <li><strong>Réel</strong> : votre vrai compte. Commencez avec un petit montant que vous pouvez vous permettre de perdre.</li>
+          </ul>
+          <p>Avant de passer en réel, lancez un <strong>backtest</strong> sur la paire et la période qui vous intéressent, puis laissez tourner la démo plusieurs jours.</p>
+          <div class="tip">Règle d'or : ne passez en réel que si vous comprenez pourquoi le bot prend ses positions et combien vous pouvez perdre au maximum.</div>
+        </div>
+      </details>
+
+      <details><summary>5. Régler le risque et les protections</summary>
+        <div class="in">
+          <ul>
+            <li>Définissez la part du capital engagée par position.</li>
+            <li>Activez les protections de risque proposées dans les réglages avancés.</li>
+            <li>Utilisez le bouton d'arrêt à tout moment pour couper le bot.</li>
+          </ul>
+          <p>Un réglage prudent vaut mieux qu'un réglage agressif : le scalping avec effet de levier amplifie les gains <em>comme</em> les pertes.</p>
+        </div>
+      </details>
+
+      <details><summary>6. Recevoir les alertes Telegram</summary>
+        <div class="in">
+          <ol>
+            <li>Dans Telegram, cherchez <strong>@BotFather</strong>, envoyez <code>/newbot</code> et suivez les étapes. Vous recevez un <strong>token</strong>.</li>
+            <li>Envoyez un message à votre nouveau bot.</li>
+            <li>Ouvrez dans votre navigateur <code>https://api.telegram.org/bot</code> suivi de votre token puis <code>/getUpdates</code>. Repérez le nombre après <code>"chat":{"id":</code> : c'est votre <strong>chat id</strong>.</li>
+            <li>Dans l'application, collez le token et le chat id, puis touchez le bouton de test.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details><summary>7. Garder le bot actif en arrière-plan</summary>
+        <div class="in">
+          <ul>
+            <li>Acceptez les notifications : le bot affiche une notification permanente pour rester actif.</li>
+            <li>Autorisez l'application à fonctionner <strong>sans restriction de batterie</strong> quand Android le propose.</li>
+            <li>Gardez une connexion Internet stable (Wi-Fi ou données mobiles).</li>
+            <li>Sur certains téléphones (Xiaomi, Huawei, Oppo…), activez aussi le « démarrage automatique » de l'application dans les paramètres du fabricant.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details><summary>8. Payer l'abonnement après l'essai</summary>
+        <div class="in">
+          <ol>
+            <li>Dans l'application, ouvrez la page <strong>Abonnement</strong>.</li>
+            <li>Envoyez le montant indiqué en <strong>USDT sur le réseau Polygon</strong> à l'adresse affichée dans l'application (copiez-la depuis l'application, jamais depuis un message reçu).</li>
+            <li>Copiez le hash de la transaction (TxID) depuis votre portefeuille ou votre exchange.</li>
+            <li>Collez-le dans l'application pour valider le paiement.</li>
+          </ol>
+          <div class="tip">Attention : choisissez bien le réseau <strong>Polygon</strong>. Un envoi sur un autre réseau peut être perdu.</div>
+        </div>
+      </details>
+
+      <details><summary>9. Mettre à jour l'application</summary>
+        <div class="in">
+          <p>À chaque démarrage, l'application vérifie si une version plus récente existe. Si oui, elle vous propose de la télécharger : touchez <strong>Télécharger</strong>, ouvrez le fichier et installez-le <strong>par-dessus</strong> l'ancienne version. Vos réglages et votre compte sont conservés.</p>
+          <p>Vous pouvez aussi télécharger la dernière version depuis cette page à tout moment.</p>
+        </div>
+      </details>
     </div>
   </section>
 
   <section id="tarif">
     <div class="wrap">
-      <h2 style="text-align:center">Tarif simple</h2>
-      <p class="sub" style="text-align:center">Essayez d'abord, payez seulement si l'outil vous convient.</p>
+      <h2 style="text-align:center">Un tarif simple, sans surprise</h2>
+      <p class="sub" style="text-align:center;margin-left:auto;margin-right:auto">Essayez d'abord pendant 45 jours. Vous ne payez que si l'outil vous convient.</p>
       <div class="card price">
         <div class="big">5 USDT<span style="font-size:18px;font-weight:500;color:var(--muted)"> / mois</span></div>
         <ul>
           <li>45 jours d'essai gratuit</li>
           <li>Toutes les fonctions incluses</li>
+          <li>Pas d'engagement : vous arrêtez quand vous voulez</li>
           <li>Paiement en USDT (réseau Polygon)</li>
           <li>Mises à jour incluses</li>
         </ul>
-        <a class="btn" href="#installer">Commencer l'essai</a>
+        <a class="btn" href="#telecharger">Commencer l'essai gratuit</a>
       </div>
     </div>
   </section>
 
-  <section id="installer">
-    <div class="wrap">
-      <h2>Installer en 3 étapes</h2>
-      <p class="sub">L'application n'est pas sur le Play Store : Android demande une autorisation une seule fois.</p>
-      <ol class="steps">
-        <li><strong>Téléchargez l'APK</strong><br><span style="color:var(--muted)">Touchez le bouton « Télécharger l'application ». Si Chrome signale que le fichier peut être dangereux, choisissez « Télécharger quand même ».</span></li>
-        <li><strong>Autorisez l'installation</strong><br><span style="color:var(--muted)">Ouvrez le fichier. Android propose d'autoriser les « sources inconnues » pour Chrome : activez l'option puis revenez en arrière.</span></li>
-        <li><strong>Installez et créez votre compte</strong><br><span style="color:var(--muted)">Touchez « Installer », ouvrez l'application, créez votre compte : l'essai de 45 jours démarre.</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="faq">
+  <section class="alt" id="faq">
     <div class="wrap">
       <h2>Questions fréquentes</h2>
       <p class="sub"></p>
-      <details><summary>Est-ce que l'application se met à jour toute seule ?</summary>
-        <p>Elle vérifie au démarrage si une version plus récente existe et vous propose de la télécharger. L'installation se fait ensuite par-dessus l'ancienne version, sans rien perdre.</p></details>
-      <details><summary>Mes clés d'API sont-elles en sécurité ?</summary>
-        <p>Créez toujours des clés d'API sans droit de retrait, limitées au trading. Ne partagez jamais vos clés avec un tiers.</p></details>
+      <details><summary>L'application peut-elle retirer mon argent ?</summary>
+        <div class="in"><p>Non, à condition de créer votre clé API sans droit de retrait, comme expliqué dans le guide 3. Sans ce droit, aucune application ne peut retirer vos fonds avec cette clé.</p></div></details>
+      <details><summary>Où sont stockées mes clés API ?</summary>
+        <div class="in"><p>Sur votre téléphone, dans l'espace privé de l'application. Elles sont utilisées pour communiquer avec votre exchange.</p></div></details>
+      <details><summary>Est-ce que l'application gagne de l'argent à coup sûr ?</summary>
+        <div class="in"><p>Non. Aucun outil de trading ne peut garantir des gains. L'application vous donne des outils (backtest, simulation, démo, gestion du risque) pour décider en connaissance de cause.</p></div></details>
+      <details><summary>Pourquoi l'application n'est-elle pas sur le Play Store ?</summary>
+        <div class="in"><p>Elle est distribuée directement en fichier APK. C'est pourquoi Android demande une autorisation d'installation une seule fois.</p></div></details>
+      <details><summary>L'application se met-elle à jour toute seule ?</summary>
+        <div class="in"><p>Elle vous prévient au démarrage quand une nouvelle version existe et vous propose de la télécharger.</p></div></details>
+      <details><summary>Que se passe-t-il à la fin de l'essai ?</summary>
+        <div class="in"><p>Vous êtes prévenu avant la fin. Sans abonnement, l'accès aux fonctions se termine. Vos fonds ne sont jamais concernés : ils restent sur votre exchange.</p></div></details>
       <details><summary>Et sur iPhone ?</summary>
-        <p>Pour l'instant, seule la version Android est distribuée.</p></details>
-      <details><summary>Comment payer l'abonnement ?</summary>
-        <p>Depuis l'application, page « Abonnement » : envoi d'USDT sur le réseau Polygon puis validation du hash de transaction.</p></details>
+        <div class="in"><p>Pour l'instant, seule la version Android est distribuée.</p></div></details>
+      <details><summary>Quels exchanges sont compatibles ?</summary>
+        <div class="in"><p>Bybit, Binance Futures et Kraken Futures (support en bêta). Une simulation sans exchange est aussi disponible.</p></div></details>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="warn"><strong>Avertissement sur les risques.</strong> Le trading, en particulier avec effet de levier, comporte un risque élevé de perte en capital. Aucun gain n'est garanti et les performances passées ne préjugent pas des performances futures. Testez toujours en simulation puis en démo avant le réel, et n'engagez que de l'argent que vous pouvez vous permettre de perdre.</div>
+  <section id="contact" class="contact">
+    <div class="wrap two">
+      <div>
+        <h2>Une question ? Écrivez-nous</h2>
+        <p class="sub">Aide à l'installation, question sur un réglage ou sur votre abonnement : nous répondons par e-mail.</p>
+        <p><a class="mail" href="mailto:nirinadim@gmail.com?subject=TERA%20MOBILE%20SCALP">nirinadim@gmail.com</a></p>
+        <p class="meta">Indiquez le modèle de votre téléphone et décrivez le problème : nous pourrons vous répondre plus vite. Ne nous envoyez jamais vos clés API ou vos mots de passe.</p>
+      </div>
+      <div class="warn"><strong>Avertissement sur les risques.</strong> Le trading, en particulier avec effet de levier, comporte un risque élevé de perte en capital pouvant dépasser vos attentes. Aucun gain n'est garanti et les performances passées ne préjugent pas des performances futures. Testez toujours en simulation puis en démo avant le réel, et n'engagez que de l'argent que vous pouvez vous permettre de perdre. Ce site et l'application ne constituent pas un conseil en investissement.</div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap" style="text-align:center">
+      <h2>Prêt à reprendre le contrôle ?</h2>
+      <p class="sub" style="margin:0 auto 22px">45 jours pour tester, sans carte bancaire et sans risque pour vos fonds.</p>
+      <a class="btn" id="dl2" href="https://github.com/nirinadim-ctrl/tera-mobile-scalp/releases/latest/download/TERA-MOBILE-SCALP.apk">Télécharger l'application (APK)</a>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© TERA MOBILE SCALP · Ce site ne fournit pas de conseil en investissement.</div>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>TERA MOBILE SCALP</h4>Application Android de scalping suiveur de tendance.</div>
+      <div><h4>Confidentialité</h4>Nous utilisons votre adresse e-mail pour votre compte et le hash de transaction pour valider votre abonnement. Vos clés API restent sur votre téléphone. Nous ne vendons pas vos données.</div>
+      <div><h4>Contact</h4><a href="mailto:nirinadim@gmail.com">nirinadim@gmail.com</a></div>
+    </div>
+    <div class="legal">
+      © 2026 TERA MOBILE SCALP. Tous droits réservés. Le nom, le logo, l'application, les textes et les visuels de ce site sont protégés : toute reproduction ou diffusion, totale ou partielle, sans autorisation écrite est interdite.<br>
+      Binance, Bybit et Kraken sont des marques appartenant à leurs propriétaires respectifs. TERA MOBILE SCALP n'est ni affilié à, ni approuvé par ces sociétés.
+    </div>
+  </div>
 </footer>
 
+<div class="sticky">
+  <span>45 jours d'essai gratuit · aucun droit de retrait</span>
+  <a class="btn small" id="dl3" href="https://github.com/nirinadim-ctrl/tera-mobile-scalp/releases/latest/download/TERA-MOBILE-SCALP.apk">Télécharger l'APK</a>
+</div>
+
 <script>
-  // Affiche la version publiée dans version.json
-  fetch('version.json').then(r => r.json()).then(j => {
+  // Affiche la version publiée dans version.json et aligne tous les boutons de telechargement
+  fetch('version.json').then(function (r) { return r.json(); }).then(function (j) {
     if (j.version) document.getElementById('ver').textContent = 'version ' + j.version;
-    if (j.apk_url) document.getElementById('dl').href = j.apk_url;
-  }).catch(() => {});
+    if (j.apk_url) ['dl', 'dl2', 'dl3'].forEach(function (id) { document.getElementById(id).href = j.apk_url; });
+  }).catch(function () {});
 
   // Captures : placez screens/1.png, 2.png, 3.png... a cote de cette page
   (function () {
