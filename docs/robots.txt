@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nirinadim-ctrl.github.io/tera-mobile-scalp/sitemap.xml
